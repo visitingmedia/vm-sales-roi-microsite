@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visiting Media | Customer ROI & Value Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy-950: #070B19;
+      --navy-900: #0B132B;
+      --navy-800: #1C2541;
+      --navy-700: #2B3A67;
+      --navy-600: #3E5080;
+      --azure-500: #00A6FB;
+      --azure-400: #38BDF8;
+      --azure-300: #7DD3FC;
+      --azure-100: #E0F2FE;
+      --emerald-500: #10B981;
+      --emerald-400: #34D399;
+      --amber-400: #FBBF24;
+      --gray-50: #F8FAFC;
+      --gray-100: #F1F5F9;
+      --gray-200: #E2E8F0;
+      --gray-300: #CBD5E1;
+      --gray-400: #94A3B8;
+      --gray-600: #475569;
+      --gray-700: #334155;
+      --gray-900: #0F172A;
+      --white: #FFFFFF;
+      --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-body);
+      background-color: var(--navy-950);
+      color: var(--gray-100);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Header */
+    header {
+      background: rgba(11, 19, 43, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+    .logo-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: inherit;
+    }
+    .logo-mark {
+      background: linear-gradient(135deg, var(--azure-500), #0066CC);
+      color: white;
+      font-weight: 800;
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      padding: 0.35rem 0.65rem;
+      border-radius: 8px;
+      letter-spacing: -0.5px;
+    }
+    .logo-text {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: -0.3px;
+    }
+    .badge-internal {
+      background: rgba(0, 166, 251, 0.12);
+      color: var(--azure-300);
+      border: 1px solid rgba(0, 166, 251, 0.3);
+      padding: 0.25rem 0.65rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    nav.top-nav {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    nav.top-nav a {
+      color: var(--gray-300);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.15s ease;
+    }
+    nav.top-nav a:hover {
+      color: var(--white);
+    }
+    .btn-cta {
+      background: var(--azure-500);
+      color: var(--navy-950);
+      font-weight: 700;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .btn-cta:hover {
+      background: var(--azure-400);
+      transform: translateY(-1px);
+    }
+
+    /* Notice banner */
+    .notice-bar {
+      background: linear-gradient(90deg, rgba(0, 166, 251, 0.15), rgba(16, 185, 129, 0.15));
+      border-bottom: 1px solid rgba(0, 166, 251, 0.25);
+      padding: 0.5rem 0;
+      font-size: 0.8rem;
+      text-align: center;
+      color: var(--azure-300);
+    }
+    .notice-bar strong { color: white; }
+
+    /* Hero Section */
+    .hero {
+      padding: 4.5rem 0 3.5rem;
+      position: relative;
+    }
+    .hero-eyebrow {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--azure-400);
+      margin-bottom: 0.75rem;
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: 3.25rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -1px;
+      color: var(--white);
+      max-width: 950px;
+      margin-bottom: 1.25rem;
+    }
+    .hero-title span {
+      background: linear-gradient(135deg, var(--azure-400), var(--emerald-400));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-lead {
+      font-size: 1.2rem;
+      color: var(--gray-300);
+      max-width: 800px;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    /* Stat Banner Grid */
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+      margin-bottom: 3.5rem;
+    }
+    .stat-card {
+      background: var(--navy-900);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 1.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .stat-card:hover {
+      border-color: rgba(0, 166, 251, 0.4);
+      transform: translateY(-2px);
+    }
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--azure-500), transparent);
+    }
+    .stat-val {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .stat-val.accent {
+      background: linear-gradient(135deg, var(--azure-400), var(--emerald-400));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .stat-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--gray-200);
+      margin-bottom: 0.25rem;
+    }
+    .stat-sub {
+      font-size: 0.75rem;
+      color: var(--gray-400);
+      line-height: 1.4;
+    }
+
+    /* Section Styles */
+    section {
+      padding: 4rem 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .section-header {
+      margin-bottom: 2.5rem;
+    }
+    .section-kicker {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--azure-400);
+      margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.5px;
+      margin-bottom: 0.75rem;
+    }
+    .section-desc {
+      font-size: 1.05rem;
+      color: var(--gray-400);
+      max-width: 720px;
+    }
+
+    /* Calculator Section */
+    .calc-container {
+      background: var(--navy-900);
+      border: 1px solid rgba(0, 166, 251, 0.25);
+      border-radius: 16px;
+      padding: 2.5rem;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    }
+    .calc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    @media (max-width: 900px) {
+      .calc-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .hero-title { font-size: 2.5rem; }
+    }
+
+    .calc-inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .input-group {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+    .input-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.5rem;
+    }
+    .input-label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--gray-200);
+    }
+    .input-display {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--azure-400);
+    }
+    .slider {
+      width: 100%;
+      height: 6px;
+      border-radius: 4px;
+      background: var(--navy-800);
+      outline: none;
+      -webkit-appearance: none;
+      margin: 0.75rem 0 0.5rem;
+    }
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--azure-400);
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(0, 166, 251, 0.5);
+      transition: transform 0.1s;
+    }
+    .slider::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
+    }
+    .input-ranges {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: var(--gray-400);
+    }
+
+    /* Tuning toggle */
+    .tuning-toggle {
+      font-size: 0.825rem;
+      color: var(--azure-300);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-weight: 600;
+      margin-top: 0.5rem;
+    }
+    .tuning-panel {
+      display: none;
+      margin-top: 1rem;
+      padding: 1rem;
+      background: rgba(0, 0, 0, 0.25);
+      border-radius: 8px;
+      border: 1px dashed rgba(255, 255, 255, 0.1);
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .tuning-panel.open { display: flex; }
+
+    /* Calc Results Box */
+    .calc-results {
+      background: linear-gradient(145deg, #111B38, #0B132B);
+      border: 1px solid rgba(0, 166, 251, 0.35);
+      border-radius: 14px;
+      padding: 2.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+      position: relative;
+    }
+    .result-hero {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 1.5rem;
+    }
+    .result-hero-val {
+      font-family: var(--font-display);
+      font-size: 4rem;
+      font-weight: 800;
+      color: var(--azure-400);
+      line-height: 1;
+      margin-bottom: 0.35rem;
+      letter-spacing: -1px;
+    }
+    .result-hero-label {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--white);
+    }
+    .result-hero-sub {
+      font-size: 0.8rem;
+      color: var(--gray-400);
+      margin-top: 0.25rem;
+    }
+
+    .result-breakdown {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .res-metric {
+      display: flex;
+      flex-direction: column;
+    }
+    .res-val {
+      font-family: var(--font-display);
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .res-val.green { color: var(--emerald-400); }
+    .res-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--gray-300);
+      margin-top: 0.2rem;
+    }
+    .res-desc {
+      font-size: 0.725rem;
+      color: var(--gray-400);
+      margin-top: 0.1rem;
+    }
+
+    .copy-summary-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: var(--white);
+      padding: 0.75rem 1.25rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: all 0.2s;
+      width: 100%;
+    }
+    .copy-summary-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: var(--azure-400);
+    }
+
+    /* Case Studies Tab & Grid */
+    .filter-bar {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .filter-btn {
+      background: var(--navy-900);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--gray-300);
+      padding: 0.45rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.825rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--azure-500);
+      color: var(--navy-950);
+      border-color: var(--azure-500);
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 1.5rem;
+    }
+    .case-card {
+      background: var(--navy-900);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .case-card:hover {
+      border-color: rgba(0, 166, 251, 0.4);
+      transform: translateY(-2px);
+    }
+    .case-badge-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    .case-category {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--azure-400);
+      letter-spacing: 0.5px;
+    }
+    .case-highlight {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--emerald-400);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 0.2rem 0.6rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+    .case-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+    .case-quote {
+      font-size: 0.9rem;
+      color: var(--gray-300);
+      font-style: italic;
+      margin-bottom: 1.25rem;
+      line-height: 1.5;
+      position: relative;
+      padding-left: 1rem;
+      border-left: 2px solid var(--azure-500);
+    }
+    .case-attribution {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--gray-400);
+      margin-bottom: 1.25rem;
+    }
+    .case-metrics-box {
+      background: rgba(0, 0, 0, 0.25);
+      border-radius: 8px;
+      padding: 0.85rem;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 0.8rem;
+    }
+    .case-metrics-box ul {
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .case-metrics-box li {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--gray-200);
+    }
+    .case-metrics-box li strong {
+      color: var(--azure-300);
+    }
+
+    /* Personas Section */
+    .persona-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .persona-card {
+      background: var(--navy-900);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 1.75rem;
+    }
+    .persona-role {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.25rem;
+    }
+    .persona-focus {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--azure-400);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .persona-pain {
+      background: rgba(239, 68, 68, 0.08);
+      border: 1px solid rgba(239, 68, 68, 0.2);
+      border-radius: 8px;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      font-size: 0.825rem;
+      color: #FCA5A5;
+    }
+    .persona-pitch {
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      border-radius: 8px;
+      padding: 0.75rem;
+      font-size: 0.825rem;
+      color: #6EE7B7;
+    }
+    .persona-pitch strong, .persona-pain strong { display: block; margin-bottom: 0.25rem; }
+
+    /* Objections Section */
+    .objection-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    @media (max-width: 800px) {
+      .objection-grid { grid-template-columns: 1fr; }
+    }
+    .objection-card {
+      background: var(--navy-900);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 1.75rem;
+    }
+    .objection-q {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #F87171;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+    .objection-a {
+      font-size: 0.9rem;
+      color: var(--gray-300);
+      line-height: 1.6;
+    }
+    .objection-proof {
+      margin-top: 0.75rem;
+      font-size: 0.8rem;
+      color: var(--azure-300);
+      font-weight: 600;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--navy-950);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 3rem 0;
+      font-size: 0.85rem;
+      color: var(--gray-400);
+      text-align: center;
+    }
+    footer a { color: var(--azure-400); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+  <!-- Internal Notification Header -->
+  <div class="notice-bar">
+    <strong>INTERNAL REVENUE ENABLEMENT ASSET:</strong> Compiled for Sarah & Visiting Media Sales Leadership. Sources: Sourced Positioning Spec & Customer MDX Archives.
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="container header-inner">
+      <a href="#" class="logo-badge">
+        <span class="logo-mark">VM</span>
+        <span class="logo-text">Visiting Media</span>
+        <span class="badge-internal">Sales ROI Intel</span>
+      </a>
+      <nav class="top-nav">
+        <a href="#calculator">Interactive Calculator</a>
+        <a href="#stats">Proof Metrics</a>
+        <a href="#case-studies">Verified Case Studies</a>
+        <a href="#personas">Buyer Personas</a>
+        <a href="#objections">Objections</a>
+      </nav>
+      <a href="#calculator" class="btn-cta">Model Prospect ROI ↓</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <div class="container hero">
+      <div class="hero-eyebrow">Hospitality Sales Enablement Intelligence</div>
+      <h1 class="hero-title">The Math Behind <span>17× ROI</span> in Immersive Hospitality Selling.</h1>
+      <p class="hero-lead">
+        Hotels and venue operators don't buy virtual tours for aesthetics—they buy them to win group contracts, outmaneuver the comp set, and compress booking cycles. Here is every verified metric, customer quote, and mathematical model packaged for sales conversations.
+      </p>
+
+      <!-- Stat Banner Grid -->
+      <div class="stat-grid" id="stats">
+        <div class="stat-card">
+          <div class="stat-val accent">17×</div>
+          <div class="stat-label">Reported ROI</div>
+          <div class="stat-sub">Commonly reported within first quarter of active multi-channel use.</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-val">+25–39%</div>
+          <div class="stat-label">Closing Ratio Uplift</div>
+          <div class="stat-sub">Average surge on group stays and event space proposals.</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-val">48%</div>
+          <div class="stat-label">Faster Deal Velocity</div>
+          <div class="stat-sub">Sales cycles compressed from 35 days to 18 days (JW Marriott).</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-val">400+ hrs</div>
+          <div class="stat-label">Rep Time Saved</div>
+          <div class="stat-sub">Saved annually per salesperson on site inspections & PDF proposals.</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-val">+130%</div>
+          <div class="stat-label">Booking Intent Lift</div>
+          <div class="stat-sub">Meeting planners are 130% more likely to book after exploring 3D tours.</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-val">$5M+</div>
+          <div class="stat-label">Single Deal Wins</div>
+          <div class="stat-sub">Major sponsorships & buyouts won directly over virtual walkthroughs.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interactive Calculator Section -->
+    <section id="calculator">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">Live Projection Tool</div>
+          <h2 class="section-title">Interactive Customer ROI Calculator</h2>
+          <p class="section-desc">
+            The exact mathematical model engineered for Visiting Media's CMS block. Use this live during prospect discovery calls with General Managers, DOSMs, or Management Company VPs to calculate their exact projected return.
+          </p>
+        </div>
+
+        <div class="calc-container">
+          <div class="calc-grid">
+            <!-- Inputs Column -->
+            <div class="calc-inputs">
+              <!-- Properties -->
+              <div class="input-group">
+                <div class="input-header">
+                  <span class="input-label">Number of Properties</span>
+                  <span class="input-display" id="disp-properties">10</span>
+                </div>
+                <input type="range" class="slider" id="input-properties" min="1" max="100" step="1" value="10">
+                <div class="input-ranges"><span>1 property</span><span>100 properties</span></div>
+              </div>
+
+              <!-- Annual Content Spend -->
+              <div class="input-group">
+                <div class="input-header">
+                  <span class="input-label">Annual Content/Media Spend (per property)</span>
+                  <span class="input-display" id="disp-spend">$25,000</span>
+                </div>
+                <input type="range" class="slider" id="input-spend" min="5000" max="100000" step="2500" value="25000">
+                <div class="input-ranges"><span>$5,000</span><span>$100,000</span></div>
+              </div>
+
+              <!-- Group Booking Revenue -->
+              <div class="input-group">
+                <div class="input-header">
+                  <span class="input-label">Annual Group Booking Revenue (per property)</span>
+                  <span class="input-display" id="disp-revenue">$2,000,000</span>
+                </div>
+                <input type="range" class="slider" id="input-revenue" min="250000" max="15000000" step="250000" value="2000000">
+                <div class="input-ranges"><span>$250K</span><span>$15M</span></div>
+              </div>
+
+              <!-- Advanced Tuning Toggle -->
+              <div>
+                <span class="tuning-toggle" id="btn-toggle-tuning">⚙️ Customize Model Assumptions (Advanced)</span>
+                <div class="tuning-panel" id="panel-tuning">
+                  <div>
+                    <label style="font-size:0.75rem; color:var(--gray-300); display:block; margin-bottom:4px;">Revenue Uplift Rate (%)</label>
+                    <input type="number" id="tune-uplift" value="3.0" step="0.5" min="1" max="10" style="background:#1C2541; border:1px solid #3E5080; color:white; padding:4px 8px; border-radius:4px; width:80px;">
+                    <span style="font-size:0.7rem; color:var(--gray-400); margin-left:6px;">Default: 3.0% (Conservatively below customer avg 25%)</span>
+                  </div>
+                  <div>
+                    <label style="font-size:0.75rem; color:var(--gray-300); display:block; margin-bottom:4px;">Hours Saved per Property/Year</label>
+                    <input type="number" id="tune-hours" value="240" step="20" min="50" max="600" style="background:#1C2541; border:1px solid #3E5080; color:white; padding:4px 8px; border-radius:4px; width:80px;">
+                    <span style="font-size:0.7rem; color:var(--gray-400); margin-left:6px;">Default: 240 hrs (~20 hrs/mo in walkthroughs & RFPs)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Results Column -->
+            <div class="calc-results">
+              <div class="result-hero">
+                <div class="result-hero-val" id="out-roi">2.4×</div>
+                <div class="result-hero-label">Estimated ROI Multiplier</div>
+                <div class="result-hero-sub">Direct return on total portfolio content investment</div>
+              </div>
+
+              <div class="result-breakdown">
+                <div class="res-metric">
+                  <div class="res-val green" id="out-uplift">$600,000</div>
+                  <div class="res-label">Annual Revenue Uplift</div>
+                  <div class="res-desc">Based on conservative 3% group conversion boost</div>
+                </div>
+
+                <div class="res-metric">
+                  <div class="res-val" id="out-hours">2,400 hrs</div>
+                  <div class="res-label">Team Time Saved</div>
+                  <div class="res-desc">Equivalent to 1.2 full-time sales coordinators</div>
+                </div>
+
+                <div class="res-metric">
+                  <div class="res-val green" id="out-net">$470,000</div>
+                  <div class="res-label">Net Value Created</div>
+                  <div class="res-desc">Revenue uplift + labor savings less total investment</div>
+                </div>
+
+                <div class="res-metric">
+                  <div class="res-val" id="out-payback">&lt; 5 months</div>
+                  <div class="res-label">Estimated Payback Period</div>
+                  <div class="res-desc">Break-even timeline based on deal velocity</div>
+                </div>
+              </div>
+
+              <button class="copy-summary-btn" id="btn-copy-summary">
+                📋 Copy Executive Summary for Proposal
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Verified Customer Case Studies -->
+    <section id="case-studies">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">Empirical Proof</div>
+          <h2 class="section-title">Verified Customer Case Studies & Hard Metrics</h2>
+          <p class="section-desc">
+            Direct citations, attributed customer quotes, and operational results extracted directly from Visiting Media's published customer portfolio.
+          </p>
+        </div>
+
+        <div class="filter-bar">
+          <button class="filter-btn active" data-filter="all">All Proof Points (12)</button>
+          <button class="filter-btn" data-filter="velocity">Closing Velocity (4)</button>
+          <button class="filter-btn" data-filter="conversion">Conversion & Win Rate (4)</button>
+          <button class="filter-btn" data-filter="enterprise">Enterprise & Portfolio (4)</button>
+        </div>
+
+        <div class="case-grid">
+          <!-- JW Marriott -->
+          <div class="case-card" data-cat="velocity">
+            <div>
+              <div class="case-badge-row">
+                <span class="case-category">Marriott Luxury Brand</span>
+                <span class="case-highlight">48% Faster Close</span>
+              </div>
+              <h3 class="case-title">JW Marriott Houston Downtown</h3>
+              <p class="case-quote">
+                "Sales cycle is reduced from 20-35 days to now just 18 days with the use of the tool. We don’t have to worry about working around people’s schedules or if a room is out of order... we can walk them through and it’s just as good as them being present."
+              </p>
+              <div class="case-attribution">Director of Sales & Marketing</div>
+            </div>
+            <div class="case-metrics-box">
+              <ul>
+                <li>• <strong>18 Days:</strong> Compressed sales cycle (down from 35 days)</li>
+                <li>• <strong>Rebound Speed:</strong> Fastest pandemic recovery in downtown comp set</li>
+                <li>• <strong>Confidence:</strong> Buyers commit without waiting for on-site inspection</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- DoubleTree Cedar Rapids -->
+          <div class="case-card" data-cat="conversion">
+            <div>
+              <div class="case-badge-row">
+                <span class="case-category">Hilton Full Service</span>
+                <span class="case-highlight">+20% Close Rate</span>
+              </div>
+              <h3 class="case-title">DoubleTree by Hilton Cedar Rapids</h3>
+              <p class="case-quote">
+                "This year we’ve seen about a 20% increase in closing rate… we’re up to about 43% which is pretty good, especially compared to Hilton’s average closing rate. Because of that tour, they brought a team here and we closed the client—approximately $170,000 for a need month."
+              </p>
+              <div class="case-attribution">Director of Sales & Marketing</div>
+            </div>
+            <div class="case-metrics-box">
+              <ul>
+                <li>• <strong>43% Close Rate:</strong> Surpassed Hilton regional average</li>
+                <li>• <strong>$170,000 Win:</strong> Single group contract closed for a critical need month</li>
+                <li>• <strong>Targeted Proposals:</strong> Sent customized spaces rather than entire hotel link</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Pacific Palms Resort -->
+          <div class="case-card" data-cat="velocity">
+            <div>
+              <div class="case-badge-row">
+                <span class="case-category">Independent Resort</span>
+                <span class="case-highlight">2.5-Week Buyout</span>
+              </div>
+              <h3 class="case-title">Pacific Palms Resort</h3>
+              <p class="case-quote">
+                "My first sellout of the hotel was with a group that was pretty short notice. It was like a huge deal to close in two and a half weeks, since this is a deal that normally takes a year or two years. Visiting Media puts us on the same level as the big brands."
+              </p>
+              <div class="case-attribution">Sales Team & Planner Navigator Lead</div>
+            </div>
+            <div class="case-metrics-box">
+              <ul>
+                <li>• <strong>2.5 Weeks vs 2 Years:</strong> Full hotel buyout timeline compressed</li>
+                <li>• <strong>Comp Set Dominance:</strong> Outperformed branded chains as an independent</li>
+                <li>• <strong>Real-time Signals:</strong> Instant notification when planners open proposals</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- King Kamehameha -->
+          <div class="case-card" data-cat="conversion">
+            <div>
+              <div class="case-badge-row">
+                <span class="case-category">Resort Destination</span>
+                <span class="case-highlight">+26.7% Conversion</span>
+              </div>
+              <h3 class="case-title">King Kamehameha Kona Beach Resort</h3>
+              <p class="case-quote">
+                "We saw an immediate 26.7% increase in proposal conversion rates and recorded 80+ tracked clicks on 360° virtual tours within our fully customized, media-rich proposals."
+              </p>
+              <div class="case-attribution">Hospitality Group Case Evidence</div>
+            </div>
+            <div class="case-metrics-box">
+              <ul>
+                <li>• <strong>+26.7%:</strong> Proposal conversion rate increase</li>
+                <li>• <strong>80+ Interactions:</strong> Deep buyer engagement inside proposal links</li>
+                <li>• <strong>Remote Sourcing:</strong> Secured mainland US planners without flight tours</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Delta Hotels Vancouver -->
+          <div class="case-card" data-cat="conversion">
+            <div>
+              <div class="case-badge-row">
+                <span class="case-category">Marriott Full Service</span>
+                <span class="case-highlight">+9% Premium Occ</span>
+              </div>
+              <h3 class="case-title">Delta Hotels Vancouver Downtown Suites</h3>
+              <p class="case-quote">
+                "Once we’ve had someone come through our hotel, the conversion to win that group multiplies by at least 50%. This tool is definitely useful for being able to hop on a call and give prospects a hotel tour as if they were here."
+              </p>
+              <div class="case-attribution">Director of Sales & Marketing</div>
+            </div>
+            <div class="case-metrics-box">
+              <ul>
+                <li>• <strong>+9% Paid Premium Occupancy:</strong> Year-over-year growth</li>
+                <li>• <strong>50% Conversion Multiplier:</strong> Delivered virtually via TrueTour</li>
+                <li>• <strong>Interstate Selling:</strong> Closed cross-border and East Coast corporate buyers</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Banc of California Stadium -->
+          <div class="case-card" data-cat="enterprise">
+            <div>
+              <div class="case-badge-row">
+                <span class="case-category">Sports & Entertainment</span>
+                <span class="case-highlight">30,000% ROI</span>
+              </div>
+              <h3 class="case-title">Banc of California Stadium (BMO Stadium)</h3>
+              <p class="case-quote">
+                "In just one department, we’ve earned a minimum of 30,000% return on our total investment. Closed a five-million-dollar sponsorship deal. It is a critical tool across all departments including ticket sales, private events, and operations."
+              </p>
+              <div class="case-attribution">VP of Corporate Partnerships & Events</div>
+            </div>
+            <div class="case-metrics-box">
+              <ul>
+                <li>• <strong>$5,000,000 Deal:</strong> Major corporate sponsorship closed via 3D models</li>
+                <li>• <strong>30,000% ROI:</strong> Private events revenue generated against software cost</li>
+                <li>• <strong>Multi-Department:</strong> Adopted across sales, ticketing, operations, and VIP</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Remington Hospitality -->
+          <div class="case-card" data-cat="enterprise">
+            <div>
+              <div class="case-badge-row">
+                <span class="case-category">Management Company</span>
+                <span class="case-highlight">Portfolio Scale</span>
+              </div>
+              <h3 class="case-title">Remington Hospitality Group</h3>
+              <p class="case-quote">
+                "Our team members can effectively support each other and cross-sell properties with ease using this platform. We recently showcased meeting space size to a client who thought we were too small; once she saw the promenade, we were short-listed and won."
+              </p>
+              <div class="case-attribution">Shawn Anderson, Divisional VP Sales & Marketing</div>
+            </div>
+            <div class="case-metrics-box">
+              <ul>
+                <li>• <strong>12 Hours Saved/Mo:</strong> Per seller across 100+ hotel network</li>
+                <li>• <strong>Cross-Selling:</strong> Reps sell sibling properties they've never physically visited</li>
+                <li>• <strong>Comp Set Elimination:</strong> Won deals by disproving capacity misconceptions</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Waldorf Astoria Chicago -->
+          <div class="case-card" data-cat="velocity">
+            <div>
+              <div class="case-badge-row">
+                <span class="case-category">Hilton Luxury</span>
+                <span class="case-highlight">C-Suite Velocity</span>
+              </div>
+              <h3 class="case-title">Waldorf Astoria Chicago</h3>
+              <p class="case-quote">
+                "Booking windows have become significantly shorter. People are overwhelmed with links and attachments. With Visiting Media, you don’t have to sign up, download an app, or log in. I send it to the planner, who shares it with the end-user, who then sends it to the CFO to sign."
+              </p>
+              <div class="case-attribution">Senior Sales Manager (West Coast / Executive Accounts)</div>
+            </div>
+            <div class="case-metrics-box">
+              <ul>
+                <li>• <strong>Zero Login Friction:</strong> Instant access for executive decision-makers & CFOs</li>
+                <li>• <strong>Shorter Booking Windows:</strong> Meets modern compressed RFP timelines</li>
+                <li>• <strong>Executive Board Deals:</strong> Wins high-rate C-suite retreat business</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Pumpkin Ridge -->
+          <div class="case-card" data-cat="conversion">
+            <div>
+              <div class="case-badge-row">
+                <span class="case-category">Event Venue & Golf</span>
+                <span class="case-highlight">2-Week Payback</span>
+              </div>
+              <h3 class="case-title">Pumpkin Ridge Golf Club</h3>
+              <p class="case-quote">
+                "In just 2 weeks of use, Christina made Pumpkin Ridge’s entire annual software investment back—and then some!—using TrueTour at just one single bridal fair event."
+              </p>
+              <div class="case-attribution">Christina, Director of Sales</div>
+            </div>
+            <div class="case-metrics-box">
+              <ul>
+                <li>• <strong>14-Day Payback:</strong> 100% annual platform cost recovered in first fortnight</li>
+                <li>• <strong>Bridal Expo Standout:</strong> Planners booked on the spot from booth iPads</li>
+                <li>• <strong>Overcame Weather Barriers:</strong> Sold outdoor wedding lawns during winter rain</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Pier Sixty-Six -->
+          <div class="case-card" data-cat="enterprise">
+            <div>
+              <div class="case-badge-row">
+                <span class="case-category">Luxury Marina Resort</span>
+                <span class="case-highlight">Pre-Opening Sales</span>
+              </div>
+              <h3 class="case-title">Pier Sixty-Six Fort Lauderdale</h3>
+              <p class="case-quote">
+                "It was hard to bring to life the vision until you can actually look at the renderings and animated tours. They created ripples in pool water, twinkling stars, curtains gently blowing... Visiting Media drove 18 months of pre-opening sales before construction was done."
+              </p>
+              <div class="case-attribution">Director of Sales & Development</div>
+            </div>
+            <div class="case-metrics-box">
+              <ul>
+                <li>• <strong>18 Months Pre-Sales:</strong> Booked group events 1.5 years before opening doors</li>
+                <li>• <strong>Photorealistic CGI:</strong> Turned architectural CAD blueprints into immersive 3D</li>
+                <li>• <strong>Premium Group Rates:</strong> Secured high-rate deposits without physical rooms</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Convention Hotel -->
+          <div class="case-card" data-cat="velocity">
+            <div>
+              <div class="case-badge-row">
+                <span class="case-category">Convention Hotel</span>
+                <span class="case-highlight">400 Hrs Saved</span>
+              </div>
+              <h3 class="case-title">Tier-1 Convention Center Hotel</h3>
+              <p class="case-quote">
+                "The platform saves 400 hours annually per salesperson. It's worth it because we are all trying to bring the experience in our hotels and resorts to the customer. And this is a very easy, tangible way to do it."
+              </p>
+              <div class="case-attribution">Director of Sales and Marketing</div>
+            </div>
+            <div class="case-metrics-box">
+              <ul>
+                <li>• <strong>400 Hours/Seller:</strong> Eliminated unproductive physical walk-throughs</li>
+                <li>• <strong>Turnover Shield:</strong> New sales reps sell complex spaces on Day 1</li>
+                <li>• <strong>Scale:</strong> Sold 20% expanded space ahead of completion</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- SpringHill Suites -->
+          <div class="case-card" data-cat="enterprise">
+            <div>
+              <div class="case-badge-row">
+                <span class="case-category">Marriott Select Service</span>
+                <span class="case-highlight">ADR Defense</span>
+              </div>
+              <h3 class="case-title">SpringHill Suites Lexington Fritz Farm</h3>
+              <p class="case-quote">
+                "As a select service hotel, ADR is an important driver which can be a battle against lowest-price shoppers on marriott.com. Having TrueTour in my email signature and sending tailored links lets me track opens in 24 hours and see numbers rise month after month."
+              </p>
+              <div class="case-attribution">Director of Sales</div>
+            </div>
+            <div class="case-metrics-box">
+              <ul>
+                <li>• <strong>Defended ADR:</strong> Prevented commoditization against budget competitors</li>
+                <li>• <strong>24-Hour Analytics:</strong> Alerts sales team the moment prospect opens link</li>
+                <li>• <strong>Email Signature Integration:</strong> Pass the Peach referral acceleration</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Persona Playbooks Section -->
+    <section id="personas">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">Sales Execution Playbook</div>
+          <h2 class="section-title">How to Pitch ROI by Buyer Persona</h2>
+          <p class="section-desc">
+            Hospitality stakeholders care about completely different balance sheet metrics. Use these calibrated talk tracks during Sarah's team calls.
+          </p>
+        </div>
+
+        <div class="persona-grid">
+          <!-- DOSM -->
+          <div class="persona-card">
+            <h3 class="persona-role">Director of Sales & Marketing (DOSM)</h3>
+            <div class="persona-focus">Core Focus: RevPAR Index & Group Close Rate</div>
+            <div class="persona-pain">
+              <strong>Their Core Pain:</strong>
+              "Planners send RFPs to 5 comp set hotels. We send flat PDF floor plans and wait days for on-site visits while our ballroom sits occupied or under setup."
+            </div>
+            <div class="persona-pitch">
+              <strong>The ROI Talk Track:</strong>
+              "DoubleTree and JW Marriott proved that sending immersive 3D spaces inside proposal links cuts sales cycles by 48% and pushes closing ratios to 43%. When planners can walk your ballroom virtually from their phone, they sign before the comp set even schedules a call."
+            </div>
+          </div>
+
+          <!-- GM / Ownership -->
+          <div class="persona-card">
+            <h3 class="persona-role">General Manager / Asset Manager</h3>
+            <div class="persona-focus">Core Focus: NOI, CapEx Payback & Margin</div>
+            <div class="persona-pain">
+              <strong>Their Core Pain:</strong>
+              "We just spent millions on room renovations or CapEx, but OTAs and corporate travel managers are still booking based on discounted commoditized rates."
+            </div>
+            <div class="persona-pitch">
+              <strong>The ROI Talk Track:</strong>
+              "Delta Hotels documented a +9% lift in paid premium occupancy by putting virtual walkthroughs at the point of decision. On a $2M group revenue baseline, a 3% uplift produces $60,000 in direct high-margin revenue—paying for the platform in under 4 months."
+            </div>
+          </div>
+
+          <!-- Management Co Exec -->
+          <div class="persona-card">
+            <h3 class="persona-role">VP Sales (Management Company / Enterprise)</h3>
+            <div class="persona-focus">Core Focus: Cross-Selling & Sales Rep Productivity</div>
+            <div class="persona-pain">
+              <strong>Their Core Pain:</strong>
+              "High sales rep turnover means new reps take 6 months to learn our 30 properties. Reps at Hotel A have no idea how to sell our sister property in Dallas."
+            </div>
+            <div class="persona-pitch">
+              <strong>The ROI Talk Track:</strong>
+              "Remington Hospitality uses our platform across 100+ properties so sellers can cross-sell sister hotels they’ve never visited, saving 12 hours a month per seller. New reps sell like seasoned veterans on Day 1 because the entire portfolio is in their pocket."
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Objection Handling Matrix -->
+    <section id="objections">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">Objection Destruction</div>
+          <h2 class="section-title">Answering Common Customer Objections with Data</h2>
+          <p class="section-desc">
+            Direct, evidence-grounded scripts for overcoming price resistance and legacy technology attachments.
+          </p>
+        </div>
+
+        <div class="objection-grid">
+          <div class="objection-card">
+            <div class="objection-q">
+              <span>⚠️</span> "We already have professional photography and PDF floorplans."
+            </div>
+            <p class="objection-a">
+              "Photographs show what a room looks like; immersive selling shows what an event <em>feels</em> like. Sourcing data shows planners are 130% more likely to book after experiencing interactive spaces. When a buyer receives 4 PDF floor plans and 1 interactive 3D ballroom that lets them toggle wedding versus classroom setup, you win the shortlist every time."
+            </p>
+            <div class="objection-proof">Evidence: Remington Hospitality & DoubleTree (43% closing rate vs comp set).</div>
+          </div>
+
+          <div class="objection-card">
+            <div class="objection-q">
+              <span>⚠️</span> "We already have a Matterport tour on our website."
+            </div>
+            <p class="objection-a">
+              "Matterport captures 3D pixels; Visiting Media automates sales workflows. A tour sitting buried on your website doesn't help your sales rep in an email reply. Our platform lets sellers create custom proposal links with just the specific spaces requested, tracks exactly when the buyer opens it, and integrates 3D event diagramming so planners can lay out tables in real time."
+            </p>
+            <div class="objection-proof">Evidence: Waldorf Astoria & Pacific Palms (single frictionless link sent in-flight).</div>
+          </div>
+
+          <div class="objection-card">
+            <div class="objection-q">
+              <span>⚠️</span> "We don't have budget for new software right now."
+            </div>
+            <p class="objection-a">
+              "Visiting Media isn't a software cost; it's a self-funding revenue accelerator. Pumpkin Ridge Golf Club paid for their entire annual agreement in just 14 days from a single event. If our platform closes just one additional $15,000 group booking or saves your team 20 hours of manual walkthroughs a month, it generates a 300%+ net positive cash return in year one."
+            </p>
+            <div class="objection-proof">Evidence: Pumpkin Ridge (2-week payback) & Banc of California Stadium (30,000% ROI).</div>
+          </div>
+
+          <div class="objection-card">
+            <div class="objection-q">
+              <span>⚠️</span> "Our meeting planners always insist on flying in for an on-site visit."
+            </div>
+            <p class="objection-a">
+              "Planners used to fly in for everything. Today, booking windows have collapsed by 50%. Sourcing managers don't have time to fly to 4 cities before deciding a shortlist. At JW Marriott Houston, virtual site inspections cut the sales cycle from 35 days down to 18 days because buyers got the visual confidence they needed immediately over Zoom."
+            </p>
+            <div class="objection-proof">Evidence: JW Marriott Houston Downtown (sales cycle reduced by 17 days).</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p style="margin-bottom:0.5rem; font-weight:600; color:var(--white);">Visiting Media — Customer ROI & Sales Enablement Intelligence</p>
+      <p>Compiled from official positioning docs, customer case archives, and CMS block code. Built for Sarah Kaykas-Wolff & Sales Operations.</p>
+    </div>
+  </footer>
+
+  <!-- Script for Interactive Calculator & Copy Feature -->
+  <script>
+    // Elements
+    const propSlider = document.getElementById('input-properties');
+    const spendSlider = document.getElementById('input-spend');
+    const revSlider = document.getElementById('input-revenue');
+    const upliftInput = document.getElementById('tune-uplift');
+    const hoursInput = document.getElementById('tune-hours');
+
+    const dispProp = document.getElementById('disp-properties');
+    const dispSpend = document.getElementById('disp-spend');
+    const dispRev = document.getElementById('disp-revenue');
+
+    const outRoi = document.getElementById('out-roi');
+    const outUplift = document.getElementById('out-uplift');
+    const outHours = document.getElementById('out-hours');
+    const outNet = document.getElementById('out-net');
+    const outPayback = document.getElementById('out-payback');
+
+    const toggleBtn = document.getElementById('btn-toggle-tuning');
+    const tuningPanel = document.getElementById('panel-tuning');
+    const copyBtn = document.getElementById('btn-copy-summary');
+
+    // Toggle tuning
+    toggleBtn.addEventListener('click', () => {
+      tuningPanel.classList.toggle('open');
+    });
+
+    function formatUSD(num) {
+      if (num >= 1000000) return '$' + (num / 1000000).toFixed(2) + 'M';
+      if (num >= 1000) return '$' + Math.round(num / 1000).toLocaleString('en-US') + 'K';
+      return '$' + Math.round(num).toLocaleString('en-US');
+    }
+
+    function calculate() {
+      const properties = parseInt(propSlider.value, 10);
+      const spendPerProp = parseInt(spendSlider.value, 10);
+      const groupRevPerProp = parseInt(revSlider.value, 10);
+
+      const upliftRate = (parseFloat(upliftInput.value) || 3.0) / 100.0;
+      const hoursSavedPerProp = parseInt(hoursInput.value, 10) || 240;
+      const laborRate = 45; // $45/hr blended hotel sales rep cost
+
+      // Displays
+      dispProp.textContent = properties;
+      dispSpend.textContent = '$' + spendPerProp.toLocaleString('en-US');
+      dispRev.textContent = '$' + groupRevPerProp.toLocaleString('en-US');
+
+      // Math (Directly matching RoiCalculatorBlock.tsx formula)
+      const totalContentSpend = properties * spendPerProp;
+      const totalRevenueUplift = properties * groupRevPerProp * upliftRate;
+      const totalHoursSaved = properties * hoursSavedPerProp;
+      const totalLaborSavings = totalHoursSaved * laborRate;
+
+      const roiMultiplier = totalContentSpend > 0 ? (totalRevenueUplift / totalContentSpend).toFixed(1) : 0;
+      const netValue = totalRevenueUplift + totalLaborSavings - totalContentSpend;
+
+      // Payback period
+      const monthlyBenefit = (totalRevenueUplift + totalLaborSavings) / 12;
+      const paybackMonths = monthlyBenefit > 0 ? (totalContentSpend / monthlyBenefit).toFixed(1) : 'N/A';
+
+      // Update UI
+      outRoi.textContent = roiMultiplier + '×';
+      outUplift.textContent = formatUSD(totalRevenueUplift);
+      outHours.textContent = totalHoursSaved.toLocaleString('en-US') + ' hrs';
+      outNet.textContent = formatUSD(netValue);
+
+      if (paybackMonths <= 1.0) {
+        outPayback.textContent = '< 4 weeks';
+      } else if (paybackMonths > 12) {
+        outPayback.textContent = '12+ months';
+      } else {
+        outPayback.textContent = `~${paybackMonths} months`;
+      }
+    }
+
+    [propSlider, spendSlider, revSlider, upliftInput, hoursInput].forEach(el => {
+      el.addEventListener('input', calculate);
+    });
+
+    // Copy proposal summary
+    copyBtn.addEventListener('click', () => {
+      const p = propSlider.value;
+      const r = dispRev.textContent;
+      const mult = outRoi.textContent;
+      const uplift = outUplift.textContent;
+      const hrs = outHours.textContent;
+      const net = outNet.textContent;
+
+      const summaryText = 
+`--- VISITING MEDIA ROI PROJECTION ---
+Portfolio Scale: ${p} property(ies)
+Annual Group Revenue Baseline: ${r} / property
+--------------------------------------
+• Projected ROI Multiplier: ${mult}
+• Annual Top-Line Group Revenue Uplift: ${uplift} (at conservative 3% conversion boost)
+• Sales Team Time Saved: ${hrs}/year (walkthroughs & RFP automation)
+• Estimated Net Financial Value Created: ${net}
+--------------------------------------
+Customer Benchmark: Over 500+ properties report a 25-39% closing ratio increase and 48% compression in sales cycle (JW Marriott reduced sales cycle from 35 to 18 days).`;
+
+      navigator.clipboard.writeText(summaryText).then(() => {
+        const orig = copyBtn.innerHTML;
+        copyBtn.innerHTML = '✅ Copied to Clipboard!';
+        copyBtn.style.background = 'rgba(16, 185, 129, 0.25)';
+        copyBtn.style.borderColor = 'var(--emerald-400)';
+        setTimeout(() => {
+          copyBtn.innerHTML = orig;
+          copyBtn.style.background = '';
+          copyBtn.style.borderColor = '';
+        }, 2500);
+      });
+    });
+
+    // Filter case studies
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const caseCards = document.querySelectorAll('.case-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const f = btn.getAttribute('data-filter');
+        caseCards.forEach(card => {
+          if (f === 'all' || card.getAttribute('data-cat') === f) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    calculate();
+  </script>
+</body>
+</html>
