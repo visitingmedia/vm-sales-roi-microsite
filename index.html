@@ -6,32 +6,35 @@
   <title>Visiting Media | Customer ROI & Value Intelligence</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <style>
     :root {
-      --navy-950: #070B19;
-      --navy-900: #0B132B;
-      --navy-800: #1C2541;
-      --navy-700: #2B3A67;
-      --navy-600: #3E5080;
-      --azure-500: #00A6FB;
-      --azure-400: #38BDF8;
-      --azure-300: #7DD3FC;
-      --azure-100: #E0F2FE;
+      /* VM brand primary palette (2025 Visiting Media Brand Guidelines) */
+      --navy-950: #0A1319;
+      --navy-900: #14232E;   /* VM Deep Blue */
+      --navy-800: #1B2E3B;
+      --navy-700: #24404F;
+      --navy-600: #2F5563;
+      --azure-500: #458C99;  /* VM Azure */
+      --azure-400: #5DA3AF;
+      --azure-300: #8FC1CA;
+      --azure-100: #DCEEF1;
       --emerald-500: #10B981;
       --emerald-400: #34D399;
-      --amber-400: #FBBF24;
+      --amber-400: #D38713;  /* VM Turmeric (accent only) */
+      --gold-500: #987547;   /* VM Gold (accent only) */
       --gray-50: #F8FAFC;
-      --gray-100: #F1F5F9;
-      --gray-200: #E2E8F0;
-      --gray-300: #CBD5E1;
-      --gray-400: #94A3B8;
+      --gray-100: #E1DDD4;   /* VM Bone */
+      --gray-200: #B6B6B6;   /* VM Grey Cloud */
+      --gray-300: #B6B6B6;
+      --gray-400: #8A8F92;
       --gray-600: #475569;
-      --gray-700: #334155;
-      --gray-900: #0F172A;
+      --gray-700: #272B2C;   /* VM Slate */
+      --gray-900: #14232E;
       --white: #FFFFFF;
-      --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-      --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Inter', Arial, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-display: 'Poppins', Arial, -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -684,7 +687,7 @@
     <!-- Hero Section -->
     <div class="container hero">
       <div class="hero-eyebrow">Hospitality Sales Enablement Intelligence</div>
-      <h1 class="hero-title">The Math Behind <span>17× ROI</span> in Immersive Hospitality Selling.</h1>
+      <h1 class="hero-title">The Math Behind <span>Verified ROI</span> in Immersive Hospitality Selling.</h1>
       <p class="hero-lead">
         Hotels and venue operators don't buy virtual tours for aesthetics—they buy them to win group contracts, outmaneuver the comp set, and compress booking cycles. Here is every verified metric, customer quote, and mathematical model packaged for sales conversations.
       </p>
@@ -692,9 +695,9 @@
       <!-- Stat Banner Grid -->
       <div class="stat-grid" id="stats">
         <div class="stat-card">
-          <div class="stat-val accent">17×</div>
-          <div class="stat-label">Reported ROI</div>
-          <div class="stat-sub">Commonly reported within first quarter of active multi-channel use.</div>
+          <div class="stat-val accent">Up to 30,000%</div>
+          <div class="stat-label">Best-Case Single-Deal ROI</div>
+          <div class="stat-sub">Banc of California Stadium's top reported outlier — use the calculator below for a specific-prospect number, not this headline.</div>
         </div>
 
         <div class="stat-card">
@@ -764,7 +767,7 @@
                 <div class="input-ranges"><span>$5,000</span><span>$100,000</span></div>
               </div>
 
-              <!-- Group Booking Revenue -->
+              <!-- Annual Group Booking Revenue -->
               <div class="input-group">
                 <div class="input-header">
                   <span class="input-label">Annual Group Booking Revenue (per property)</span>
@@ -774,19 +777,35 @@
                 <div class="input-ranges"><span>$250K</span><span>$15M</span></div>
               </div>
 
+              <!-- VM Investment -->
+              <div class="input-group" style="border-color: rgba(69,140,153,0.4);">
+                <div class="input-header">
+                  <span class="input-label">Estimated VM Annual Investment (total, all properties)</span>
+                  <span class="input-display" id="disp-vmcost">$25,000</span>
+                </div>
+                <input type="range" class="slider" id="input-vmcost" min="2500" max="500000" step="2500" value="25000">
+                <div class="input-ranges"><span>$2,500</span><span>$500K</span></div>
+                <div style="font-size:0.7rem; color:var(--gray-400); margin-top:0.5rem;">Enter the actual proposed deal price. This is what payback and ROI are measured against — not the prospect's existing content/photography budget.</div>
+              </div>
+
               <!-- Advanced Tuning Toggle -->
               <div>
                 <span class="tuning-toggle" id="btn-toggle-tuning">⚙️ Customize Model Assumptions (Advanced)</span>
                 <div class="tuning-panel" id="panel-tuning">
                   <div>
                     <label style="font-size:0.75rem; color:var(--gray-300); display:block; margin-bottom:4px;">Revenue Uplift Rate (%)</label>
-                    <input type="number" id="tune-uplift" value="3.0" step="0.5" min="1" max="10" style="background:#1C2541; border:1px solid #3E5080; color:white; padding:4px 8px; border-radius:4px; width:80px;">
+                    <input type="number" id="tune-uplift" value="3.0" step="0.5" min="1" max="10" style="background:#1B2E3B; border:1px solid #2F5563; color:white; padding:4px 8px; border-radius:4px; width:80px;">
                     <span style="font-size:0.7rem; color:var(--gray-400); margin-left:6px;">Default: 3.0% (Conservatively below customer avg 25%)</span>
                   </div>
                   <div>
                     <label style="font-size:0.75rem; color:var(--gray-300); display:block; margin-bottom:4px;">Hours Saved per Property/Year</label>
-                    <input type="number" id="tune-hours" value="240" step="20" min="50" max="600" style="background:#1C2541; border:1px solid #3E5080; color:white; padding:4px 8px; border-radius:4px; width:80px;">
+                    <input type="number" id="tune-hours" value="240" step="20" min="50" max="600" style="background:#1B2E3B; border:1px solid #2F5563; color:white; padding:4px 8px; border-radius:4px; width:80px;">
                     <span style="font-size:0.7rem; color:var(--gray-400); margin-left:6px;">Default: 240 hrs (~20 hrs/mo in walkthroughs & RFPs)</span>
+                  </div>
+                  <div>
+                    <label style="font-size:0.75rem; color:var(--gray-300); display:block; margin-bottom:4px;">Blended Labor Rate ($/hr)</label>
+                    <input type="number" id="tune-laborrate" value="45" step="5" min="15" max="150" style="background:#1B2E3B; border:1px solid #2F5563; color:white; padding:4px 8px; border-radius:4px; width:80px;">
+                    <span style="font-size:0.7rem; color:var(--gray-400); margin-left:6px;">Default: $45/hr blended hotel sales rep cost</span>
                   </div>
                 </div>
               </div>
@@ -796,8 +815,8 @@
             <div class="calc-results">
               <div class="result-hero">
                 <div class="result-hero-val" id="out-roi">2.4×</div>
-                <div class="result-hero-label">Estimated ROI Multiplier</div>
-                <div class="result-hero-sub">Direct return on total portfolio content investment</div>
+                <div class="result-hero-label">Estimated ROI on VM Investment</div>
+                <div class="result-hero-sub">Revenue uplift + labor savings, divided by the proposed VM annual cost</div>
               </div>
 
               <div class="result-breakdown">
@@ -816,21 +835,24 @@
                 <div class="res-metric">
                   <div class="res-val green" id="out-net">$470,000</div>
                   <div class="res-label">Net Value Created</div>
-                  <div class="res-desc">Revenue uplift + labor savings less total investment</div>
+                  <div class="res-desc">Revenue uplift + labor savings less VM investment</div>
                 </div>
 
                 <div class="res-metric">
                   <div class="res-val" id="out-payback">&lt; 5 months</div>
                   <div class="res-label">Estimated Payback Period</div>
-                  <div class="res-desc">Break-even timeline based on deal velocity</div>
+                  <div class="res-desc">Time for VM investment to pay for itself</div>
                 </div>
               </div>
 
               <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1rem;">
                 <button class="copy-summary-btn" id="btn-copy-summary" style="flex: 1; min-width: 240px; margin-top: 0;">
-                  📋 Copy Executive Summary for Proposal
+                  📋 Copy Executive Summary
                 </button>
-                <a href="https://docs.google.com/presentation/d/1uaoJeJo00FJdYkDuszXFT2dzDUtMZs9AvPQHSu2Wj7k/edit" target="_blank" rel="noopener noreferrer" class="copy-summary-btn" style="flex: 1; min-width: 240px; margin-top: 0; text-decoration: none; display: flex; align-items: center; justify-content: center; background: rgba(0, 166, 251, 0.15); border-color: var(--azure-400); color: var(--white);">
+                <button class="copy-summary-btn" id="btn-pdf-summary" style="flex: 1; min-width: 240px; margin-top: 0; background: rgba(69, 140, 153, 0.25); border-color: var(--azure-400);">
+                  📄 Download PDF for Prospect
+                </button>
+                <a href="https://docs.google.com/presentation/d/1uaoJeJo00FJdYkDuszXFT2dzDUtMZs9AvPQHSu2Wj7k/edit" target="_blank" rel="noopener noreferrer" class="copy-summary-btn" style="flex: 1; min-width: 240px; margin-top: 0; text-decoration: none; display: flex; align-items: center; justify-content: center; background: rgba(69, 140, 153, 0.15); border-color: var(--azure-400); color: var(--white);">
                   📊 Open Executive Summary Google Slides ↗
                 </a>
               </div>
@@ -1253,12 +1275,15 @@
     const propSlider = document.getElementById('input-properties');
     const spendSlider = document.getElementById('input-spend');
     const revSlider = document.getElementById('input-revenue');
+    const vmCostSlider = document.getElementById('input-vmcost');
     const upliftInput = document.getElementById('tune-uplift');
     const hoursInput = document.getElementById('tune-hours');
+    const laborRateInput = document.getElementById('tune-laborrate');
 
     const dispProp = document.getElementById('disp-properties');
     const dispSpend = document.getElementById('disp-spend');
     const dispRev = document.getElementById('disp-revenue');
+    const dispVmCost = document.getElementById('disp-vmcost');
 
     const outRoi = document.getElementById('out-roi');
     const outUplift = document.getElementById('out-uplift');
@@ -1269,6 +1294,7 @@
     const toggleBtn = document.getElementById('btn-toggle-tuning');
     const tuningPanel = document.getElementById('panel-tuning');
     const copyBtn = document.getElementById('btn-copy-summary');
+    const pdfBtn = document.getElementById('btn-pdf-summary');
 
     // Toggle tuning
     toggleBtn.addEventListener('click', () => {
@@ -1281,32 +1307,41 @@
       return '$' + Math.round(num).toLocaleString('en-US');
     }
 
+    // Keeps the last computed figures around for the copy/PDF exports
+    let lastCalc = {};
+
     function calculate() {
       const properties = parseInt(propSlider.value, 10);
       const spendPerProp = parseInt(spendSlider.value, 10);
       const groupRevPerProp = parseInt(revSlider.value, 10);
+      const vmCost = parseInt(vmCostSlider.value, 10);
 
       const upliftRate = (parseFloat(upliftInput.value) || 3.0) / 100.0;
       const hoursSavedPerProp = parseInt(hoursInput.value, 10) || 240;
-      const laborRate = 45; // $45/hr blended hotel sales rep cost
+      const laborRate = parseFloat(laborRateInput.value) || 45; // $/hr blended hotel sales rep cost
 
       // Displays
       dispProp.textContent = properties;
       dispSpend.textContent = '$' + spendPerProp.toLocaleString('en-US');
       dispRev.textContent = '$' + groupRevPerProp.toLocaleString('en-US');
+      dispVmCost.textContent = '$' + vmCost.toLocaleString('en-US');
 
-      // Math (Directly matching RoiCalculatorBlock.tsx formula)
+      // Math — ROI is measured against the actual proposed VM deal price
+      // (vmCost), NOT the prospect's existing content/photography spend.
+      // "totalContentSpend" is retained only as an informational reference
+      // point, never as the cost basis for ROI/payback.
       const totalContentSpend = properties * spendPerProp;
       const totalRevenueUplift = properties * groupRevPerProp * upliftRate;
       const totalHoursSaved = properties * hoursSavedPerProp;
       const totalLaborSavings = totalHoursSaved * laborRate;
+      const totalBenefit = totalRevenueUplift + totalLaborSavings;
 
-      const roiMultiplier = totalContentSpend > 0 ? (totalRevenueUplift / totalContentSpend).toFixed(1) : 0;
-      const netValue = totalRevenueUplift + totalLaborSavings - totalContentSpend;
+      const roiMultiplier = vmCost > 0 ? (totalBenefit / vmCost).toFixed(1) : '0';
+      const netValue = totalBenefit - vmCost;
 
-      // Payback period
-      const monthlyBenefit = (totalRevenueUplift + totalLaborSavings) / 12;
-      const paybackMonths = monthlyBenefit > 0 ? (totalContentSpend / monthlyBenefit).toFixed(1) : 'N/A';
+      // Payback period, measured against the VM investment
+      const monthlyBenefit = totalBenefit / 12;
+      const paybackMonthsNum = monthlyBenefit > 0 ? (vmCost / monthlyBenefit) : Infinity;
 
       // Update UI
       outRoi.textContent = roiMultiplier + '×';
@@ -1314,40 +1349,49 @@
       outHours.textContent = totalHoursSaved.toLocaleString('en-US') + ' hrs';
       outNet.textContent = formatUSD(netValue);
 
-      if (paybackMonths <= 1.0) {
-        outPayback.textContent = '< 4 weeks';
-      } else if (paybackMonths > 12) {
-        outPayback.textContent = '12+ months';
+      let paybackLabel;
+      if (!isFinite(paybackMonthsNum)) {
+        paybackLabel = 'N/A';
+      } else if (paybackMonthsNum <= 1.0) {
+        paybackLabel = '< 4 weeks';
+      } else if (paybackMonthsNum > 12) {
+        paybackLabel = '12+ months';
       } else {
-        outPayback.textContent = `~${paybackMonths} months`;
+        paybackLabel = `~${paybackMonthsNum.toFixed(1)} months`;
       }
+      outPayback.textContent = paybackLabel;
+
+      lastCalc = {
+        properties, spendPerProp, groupRevPerProp, vmCost,
+        totalContentSpend, totalRevenueUplift, totalHoursSaved, totalLaborSavings,
+        totalBenefit, roiMultiplier, netValue, paybackLabel
+      };
     }
 
-    [propSlider, spendSlider, revSlider, upliftInput, hoursInput].forEach(el => {
+    [propSlider, spendSlider, revSlider, vmCostSlider, upliftInput, hoursInput, laborRateInput].forEach(el => {
       el.addEventListener('input', calculate);
     });
 
+    function buildSummaryText() {
+      const c = lastCalc;
+      return `--- VISITING MEDIA ROI PROJECTION ---
+Portfolio Scale: ${c.properties} property(ies)
+Annual Group Revenue Baseline: $${c.groupRevPerProp.toLocaleString('en-US')} / property
+Proposed VM Annual Investment: $${c.vmCost.toLocaleString('en-US')}
+--------------------------------------
+• Projected ROI on VM Investment: ${c.roiMultiplier}×
+• Annual Top-Line Group Revenue Uplift: ${formatUSD(c.totalRevenueUplift)} (at conservative ${upliftInput.value}% conversion boost)
+• Sales Team Time Saved: ${c.totalHoursSaved.toLocaleString('en-US')} hrs/year (walkthroughs & RFP automation)
+• Estimated Net Financial Value Created: ${formatUSD(c.netValue)}
+• Estimated Payback Period: ${c.paybackLabel}
+--------------------------------------
+Reference only — existing content/media spend baseline: $${c.totalContentSpend.toLocaleString('en-US')}/year (not used in the ROI calculation above).
+Customer Benchmark: Over 500+ properties report a 25-39% closing ratio increase and 48% compression in sales cycle (JW Marriott reduced sales cycle from 35 to 18 days).`;
+    }
+
     // Copy proposal summary
     copyBtn.addEventListener('click', () => {
-      const p = propSlider.value;
-      const r = dispRev.textContent;
-      const mult = outRoi.textContent;
-      const uplift = outUplift.textContent;
-      const hrs = outHours.textContent;
-      const net = outNet.textContent;
-
-      const summaryText = 
-`--- VISITING MEDIA ROI PROJECTION ---
-Portfolio Scale: ${p} property(ies)
-Annual Group Revenue Baseline: ${r} / property
---------------------------------------
-• Projected ROI Multiplier: ${mult}
-• Annual Top-Line Group Revenue Uplift: ${uplift} (at conservative 3% conversion boost)
-• Sales Team Time Saved: ${hrs}/year (walkthroughs & RFP automation)
-• Estimated Net Financial Value Created: ${net}
---------------------------------------
-Customer Benchmark: Over 500+ properties report a 25-39% closing ratio increase and 48% compression in sales cycle (JW Marriott reduced sales cycle from 35 to 18 days).`;
-
+      const summaryText = buildSummaryText();
       navigator.clipboard.writeText(summaryText).then(() => {
         const orig = copyBtn.innerHTML;
         copyBtn.innerHTML = '✅ Copied to Clipboard!';
@@ -1359,6 +1403,92 @@ Customer Benchmark: Over 500+ properties report a 25-39% closing ratio increase 
           copyBtn.style.borderColor = '';
         }, 2500);
       });
+    });
+
+    // Download proposal summary as a one-page PDF (client-side, no server)
+    pdfBtn.addEventListener('click', () => {
+      const c = lastCalc;
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF({ unit: 'pt', format: 'letter' });
+      const deepBlue = [20, 35, 46];
+      const azure = [69, 140, 153];
+      const slate = [39, 43, 44];
+      const pageW = doc.internal.pageSize.getWidth();
+      let y = 56;
+
+      // Header band
+      doc.setFillColor(...deepBlue);
+      doc.rect(0, 0, pageW, 92, 'F');
+      doc.setTextColor(255, 255, 255);
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(20);
+      doc.text('Visiting Media — Customer ROI Projection', 48, 40);
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(11);
+      doc.text('Prepared from live discovery inputs for prospect evaluation', 48, 60);
+      doc.setTextColor(...slate);
+      y = 128;
+
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(13);
+      doc.text('Portfolio Inputs', 48, y);
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(11);
+      y += 20;
+      const inputLines = [
+        `Properties in scope: ${c.properties}`,
+        `Annual group booking revenue (per property): $${c.groupRevPerProp.toLocaleString('en-US')}`,
+        `Proposed VM annual investment: $${c.vmCost.toLocaleString('en-US')}`
+      ];
+      inputLines.forEach(line => { doc.text(line, 48, y); y += 16; });
+
+      y += 12;
+      doc.setDrawColor(...azure);
+      doc.setLineWidth(1);
+      doc.line(48, y, pageW - 48, y);
+      y += 28;
+
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(13);
+      doc.text('Projected Return', 48, y);
+      y += 24;
+
+      const results = [
+        ['ROI on VM Investment', c.roiMultiplier + '×'],
+        ['Annual Revenue Uplift', formatUSD(c.totalRevenueUplift)],
+        ['Sales Team Time Saved', c.totalHoursSaved.toLocaleString('en-US') + ' hrs/yr'],
+        ['Net Value Created', formatUSD(c.netValue)],
+        ['Estimated Payback Period', c.paybackLabel]
+      ];
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(12);
+      results.forEach(([label, val]) => {
+        doc.setTextColor(...slate);
+        doc.text(label, 48, y);
+        doc.setTextColor(...azure);
+        doc.setFont('helvetica', 'bold');
+        doc.text(val, 320, y);
+        doc.setFont('helvetica', 'normal');
+        y += 22;
+      });
+
+      y += 16;
+      doc.setTextColor(...slate);
+      doc.setFontSize(10);
+      doc.setFont('helvetica', 'italic');
+      const disclaimer = doc.splitTextToSize(
+        `Reference only — existing content/media spend baseline: $${c.totalContentSpend.toLocaleString('en-US')}/year (not used in the ROI calculation above). Model uses a conservative ${upliftInput.value}% group-conversion uplift rate and $${laborRateInput.value}/hr blended labor rate. Benchmark customer results (JW Marriott, DoubleTree, King Kamehameha and others) are documented in the full ROI intelligence deck.`,
+        pageW - 96
+      );
+      doc.text(disclaimer, 48, y);
+      y += disclaimer.length * 12 + 20;
+
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(9);
+      doc.setTextColor(120, 120, 120);
+      doc.text('Visiting Media — Customer ROI & Sales Enablement Intelligence. Internal sales tool; figures are estimates for discussion purposes.', 48, 740);
+
+      doc.save(`VisitingMedia-ROI-Projection-${c.properties}prop.pdf`);
     });
 
     // Filter case studies
